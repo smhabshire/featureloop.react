@@ -1,0 +1,6 @@
+query changelogCategories {
+  changelogCategories {
+    id
+    name
+  }
+}

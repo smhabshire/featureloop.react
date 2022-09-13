@@ -1,8 +1,12 @@
 overwrite: true
-schema: "https://localhost:7141/graphql"
+schema: 'https://localhost:7141/graphql'
+documents: 'graphql/**/*.graphql'
 generates:
   ./generated/graphql.tsx:
     plugins:
       - "typescript"
       - "typescript-operations"
-      # - "typescript-react-apollo"
+      - "typescript-react-query"
+    config:
+      fetcher:
+        endpoint: 'https://localhost:7141/graphql'

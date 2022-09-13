@@ -7,6 +7,8 @@
     "generate": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.3.4",
+    "@tanstack/react-query-devtools": "^4.3.5",
     "graphql": "^16.6.0",
     "next": "latest",
     "react": "17.0.2",
@@ -20,6 +22,7 @@
     "@graphql-codegen/typescript": "2.7.3",
     "@graphql-codegen/typescript-operations": "2.5.3",
     "@graphql-codegen/typescript-react-apollo": "3.3.3",
+    "@graphql-codegen/typescript-react-query": "^4.0.1",
     "@types/node": "18.7.16",
     "@types/react": "18.0.19",
     "autoprefixer": "^10.4.8",

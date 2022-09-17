@@ -5,7 +5,8 @@
     "start": "next start",
     "generate": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen --config codegen.yml",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --quiet"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.3.4",
@@ -26,6 +27,7 @@
     "@graphql-codegen/typescript-react-query": "^4.0.1",
     "@types/node": "18.7.16",
     "@types/react": "18.0.19",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
     "autoprefixer": "^10.4.8",
     "clsx": "^1.2.1",
     "cross-env": "^7.0.3",

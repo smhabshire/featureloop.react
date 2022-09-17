@@ -1,10 +1,7 @@
-import {
-  QueryClient,
-  QueryClientProvider
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import 'tailwindcss/tailwind.css';
 
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import '../styles/global.css';
 
 const queryClient = new QueryClient();

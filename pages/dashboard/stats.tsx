@@ -1,12 +1,8 @@
 import DashboardLayout from '@/layouts/Dashboard';
 
 const Stats = () => {
-  return (
-    <>
-      Stats
-    </>
-  )
-}
+  return <>Stats</>;
+};
 
 Stats.layout = DashboardLayout;
 

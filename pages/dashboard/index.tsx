@@ -1,12 +1,8 @@
 import DashboardLayout from '@/layouts/Dashboard';
 
 const Dashboard = () => {
-  return (
-    <>
-      Dashboard page goes here!
-    </>
-  )
-}
+  return <>Dashboard page goes here!</>;
+};
 
 Dashboard.layout = DashboardLayout;
 

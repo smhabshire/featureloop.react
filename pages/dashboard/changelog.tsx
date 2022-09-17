@@ -1,12 +1,8 @@
 import DashboardLayout from '@/layouts/Dashboard';
 
 const Changelog = () => {
-  return (
-    <>
-      Changelog
-    </>
-  )
-}
+  return <>Changelog</>;
+};
 
 Changelog.layout = DashboardLayout;
 

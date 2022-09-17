@@ -1,12 +1,8 @@
 import DashboardLayout from '@/layouts/Dashboard';
 
 const Members = () => {
-  return (
-    <>
-      Members
-    </>
-  )
-}
+  return <>Members</>;
+};
 
 Members.layout = DashboardLayout;
 

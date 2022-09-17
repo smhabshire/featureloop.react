@@ -2,13 +2,22 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
-import { FaAlignJustify, FaChartLine, FaCog, FaInbox, FaMap, FaQuestion, FaSatelliteDish, FaUsers } from "react-icons/fa";
+import {
+  FaAlignJustify,
+  FaChartLine,
+  FaCog,
+  FaInbox,
+  FaMap,
+  FaQuestion,
+  FaSatelliteDish,
+  FaUsers,
+} from 'react-icons/fa';
 
 interface MenuItem {
   id: number;
   title: string;
   target?: string;
-  icon?: ReactNode,
+  icon?: ReactNode;
   active?: boolean;
 }
 
@@ -18,70 +27,70 @@ interface Route {
   menuItems: MenuItem[];
 }
 
-const menu: Route[]  = [
+const menu: Route[] = [
   {
     id: 1,
-    header: "Quick Access",
+    header: 'Quick Access',
     menuItems: [
       {
         id: 1,
-        title: "Inbox",
+        title: 'Inbox',
         icon: <FaInbox />,
-        target: "/dashboard"
+        target: '/dashboard',
       },
       {
         id: 2,
-        title: "Statistics",
+        title: 'Statistics',
         icon: <FaChartLine />,
-        target: "/dashboard/stats"
+        target: '/dashboard/stats',
       },
       {
         id: 3,
-        title: "Live Board",
+        title: 'Live Board',
         icon: <FaSatelliteDish />,
-        target: "/dashboard/liveboard"
+        target: '/dashboard/liveboard',
       },
     ],
   },
   {
     id: 2,
-    header: "Modules",
+    header: 'Modules',
     menuItems: [
       {
         id: 1,
-        title: "All Posts",
+        title: 'All Posts',
         icon: <FaAlignJustify />,
-        target: "/dashboard/features"
+        target: '/dashboard/features',
       },
       {
         id: 2,
-        title: "Roadmap",
+        title: 'Roadmap',
         icon: <FaMap />,
-        target: "/dashboard/roadmap"
+        target: '/dashboard/roadmap',
       },
       {
         id: 3,
-        title: "Changelog",
+        title: 'Changelog',
         icon: <FaQuestion />,
-        target: "/dashboard/changelog"
+        target: '/dashboard/changelog',
       },
     ],
   },
   {
     id: 3,
-    header: "Organization",
+    header: 'Organization',
     menuItems: [
       {
         id: 1,
-        title: "Team Members",
+        title: 'Team Members',
         icon: <FaUsers />,
-        target: "/dashboard/members"
+        target: '/dashboard/members',
       },
       {
         id: 2,
-        title: "Settings",
+        title: 'Settings',
         icon: <FaCog />,
-        target: "/dashboard/settings"
+        target: '/dashboard/settings',
       },
     ],
   },
@@ -92,23 +101,28 @@ const MenuGroup = ({ header, menuItems }) => {
 
   return (
     <>
-      <h2 className="text-slate-400 font-bold text-sm uppercase pb-2">{header}</h2>
+      <h2 className="text-slate-400 font-bold text-sm uppercase pb-2">
+        {header}
+      </h2>
       <ul className="pb-7">
         {menuItems.map(({ id, title, icon, target }) => (
           <Link href={target} key={id}>
-            <li className={clsx('flex flex-row items-center justify-start font-bold pb-2 px-2 py-1.5 text-sm text-gray-700 rounded-md hover:cursor-pointer',
-                  router.pathname === target
-                    ? 'text-blue-500'
-                    : 'hover:bg-gray-100 hover:text-blue-500'
-                )}>
+            <li
+              className={clsx(
+                'flex flex-row items-center justify-start font-bold pb-2 px-2 py-1.5 text-sm text-gray-700 rounded-md hover:cursor-pointer',
+                router.pathname === target
+                  ? 'text-blue-500'
+                  : 'hover:bg-gray-100 hover:text-blue-500'
+              )}
+            >
               <span className="pr-4">{icon}</span>
               {title}
-              </li>
+            </li>
           </Link>
         ))}
       </ul>
     </>
-  )
+  );
 };
 
 export default function Navbar() {

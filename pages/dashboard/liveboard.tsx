@@ -1,12 +1,8 @@
 import DashboardLayout from '@/layouts/Dashboard';
 
 const Liveboard = () => {
-  return (
-    <>
-      Liveboard
-    </>
-  )
-}
+  return <>Liveboard</>;
+};
 
 Liveboard.layout = DashboardLayout;
 

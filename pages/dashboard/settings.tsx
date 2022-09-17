@@ -1,12 +1,8 @@
 import DashboardLayout from '@/layouts/Dashboard';
 
 const Settings = () => {
-  return (
-    <>
-      Settings
-    </>
-  )
-}
+  return <>Settings</>;
+};
 
 Settings.layout = DashboardLayout;
 

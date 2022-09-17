@@ -10,10 +10,13 @@ import '../styles/global.css';
 const queryClient = new QueryClient();
 
 function Featureloop({ Component, pageProps }) {
+  const Layout = Component.layout || (({ children }) => <>{children}</>);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
-
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

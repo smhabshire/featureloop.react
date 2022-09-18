@@ -29,6 +29,8 @@ const Features = () => {
 
   useEffect(() => {
     setRequests(getRequests.data?.featureRequests.items as FeatureRequest[]);
+
+    return () => null;
   }, [getRequests.data]);
 
   useEffect(() => {

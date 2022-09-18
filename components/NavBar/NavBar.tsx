@@ -111,7 +111,7 @@ const MenuGroup = ({ header, menuItems }) => {
               className={clsx(
                 'flex flex-row items-center justify-start font-bold pb-2 px-2 py-1.5 text-sm text-gray-700 rounded-md hover:cursor-pointer',
                 router.pathname === target
-                  ? 'text-blue-500'
+                  ? 'text-blue-500 bg-gray-100'
                   : 'hover:bg-gray-100 hover:text-blue-500'
               )}
             >

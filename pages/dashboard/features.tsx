@@ -1,4 +1,6 @@
+import { Button } from '@/components/Button';
 import FeatureCard from '@/components/Features/FeatureCard';
+import ListBox from '@/components/ListBox/ListBox';
 import {
   FeatureRequest,
   SortDirection,
@@ -7,6 +9,11 @@ import {
 import DashboardLayout from '@/layouts/Dashboard';
 import { request } from 'http';
 import { useEffect, useState } from 'react';
+
+const additionalFilters = [
+  { label: 'Recent Posts', value: 'Recent Post' },
+  { label: 'Top Posts', value: 'Top Post' },
+];
 
 const defaultFilter = {
   query: '',
@@ -20,9 +27,10 @@ const defaultFilter = {
 
 const Features = () => {
   const [requests, setRequests] = useState([]);
+  const [selected, setSelected] = useState(additionalFilters[0]);
   const [loading, setLoading] = useState(true);
   const getRequests = useFeatureRequestsQuery({
-    filter: defaultFilter,
+    filter: { ...defaultFilter },
     before: '',
     after: '',
   });
@@ -43,7 +51,17 @@ const Features = () => {
         <div className="text-3xl font-bold text-slate-800">
           Feature Requests
         </div>
+        <div className="flex flex-row h-max">
+          <Button>Create Post</Button>
+        </div>
       </div>
+
+      <ListBox
+        selected={selected}
+        setSelected={setSelected}
+        className="w-72 h-10 mb-2"
+        options={additionalFilters}
+      />
 
       <div className="relative flex flex-col min-h-[150px]">
         {!loading

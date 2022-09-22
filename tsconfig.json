@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
+    "paths": {
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "public": [ "./public/*" ],
+      "gql": [ "./graphql/*" ],
+    },
     "lib": [
       "dom",
       "dom.iterable",

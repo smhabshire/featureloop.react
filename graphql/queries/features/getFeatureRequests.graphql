@@ -1,0 +1,43 @@
+query featureRequests(
+  $after: String
+  $before: String
+  $filter: DatatableFilter
+) {
+  featureRequests(after: $after, before: $before, filter: $filter) {
+    totalCount
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    items {
+      id
+      title
+      created
+      content
+      commentsEnabled
+      category {
+        id
+        name
+      }
+      status {
+        id
+        status
+        color
+      }
+      votes {
+        id
+        userId
+        value
+      }
+      comments {
+        id
+        parentCommentId
+        userId
+        created
+        comment
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { Button } from '@/components/Button';
 import FeatureCard from '@/components/Features/FeatureCard';
 import ListBox from '@/components/ListBox/ListBox';
+import Modal from '@/components/Modal/Modal';
 import {
   FeatureRequest,
   SortDirection,
@@ -29,6 +30,7 @@ const Features = () => {
   const [requests, setRequests] = useState([]);
   const [selected, setSelected] = useState(additionalFilters[0]);
   const [loading, setLoading] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
   const getRequests = useFeatureRequestsQuery({
     filter: { ...defaultFilter },
     before: '',
@@ -74,6 +76,10 @@ const Features = () => {
       <div className="flex flex-row justify-between items-center w-full py-2">
         <div className="text-sm">{request.length} Results</div>
       </div>
+
+      <Button onClick={() => setModalOpen(true)}>Show Modal</Button>
+
+      <Modal isOpen={modalOpen} closeFn={() => setModalOpen(false)} />
     </div>
   );
 };

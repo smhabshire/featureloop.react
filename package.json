@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "dev": "next dev -p 8000",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
-    "generate": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen --config codegen.yml",
+    "generate": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen -r dotenv/config  --config codegen.yml --verbose --debug",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --quiet"

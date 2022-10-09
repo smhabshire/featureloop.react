@@ -1,12 +1,12 @@
 overwrite: true
-schema: 'https://localhost:7141/graphql'
+schema: ${NEXT_PUBLIC_GRAPHQL_ENDPOINT}
 documents: 'graphql/**/*.graphql'
 generates:
   ./generated/graphql.tsx:
     plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-react-query"
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-query'
     config:
       fetcher:
-        endpoint: 'https://localhost:7141/graphql'
+        endpoint: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT

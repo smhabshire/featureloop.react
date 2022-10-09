@@ -16,9 +16,23 @@ export const authOptions = {
     session: async ({ session, token }) => {
       if (session?.user) {
         session.user.id = token.sub;
+        session.accessToken = token.accessToken;
       }
+
+
       return session;
     },
+    jwt: async ({ token, user, account }) => {
+      if (user) {
+        token.id = user.id;
+      }
+
+      if (account) {
+        token.accessToken = account.access_token;
+      }
+
+      return token;
+    }
   },
   secret: process.env.NEXTAUTH_SECRET,
   debug: true

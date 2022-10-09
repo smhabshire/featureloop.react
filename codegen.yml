@@ -9,4 +9,5 @@ generates:
       - 'typescript-react-query'
     config:
       fetcher:
-        endpoint: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT
+        func: '@/graphql/fetcher#useFetchData'
+        isReactHook: true

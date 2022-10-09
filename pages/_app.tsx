@@ -11,11 +11,11 @@ function Featureloop({ Component, pageProps: { session, ...pageProps } }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Layout>
-        <SessionProvider session={session}>
+      <SessionProvider session={session}>
+        <Layout>
           <Component {...pageProps} />
-        </SessionProvider>
-      </Layout>
+        </Layout>
+      </SessionProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

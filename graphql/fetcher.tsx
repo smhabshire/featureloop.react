@@ -1,8 +1,10 @@
 import { useSession } from 'next-auth/react';
 
-export const useFetchData = <TData, TVariables>(query: string, options?: RequestInit['headers']): ((variables?: TVariables) => Promise<TData>) => {
+export const useFetchData = <TData, TVariables>(
+  query: string,
+  options?: RequestInit['headers']
+): ((variables?: TVariables) => Promise<TData>) => {
   const session = useSession();
-  console.log(session?.data?.accessToken);
 
   return async (variables?: TVariables) => {
     const res = await fetch(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT, {

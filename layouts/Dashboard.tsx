@@ -1,12 +1,15 @@
 import NavBar from '@/components/NavBar/NavBar';
+import Link from 'next/link';
 
 const DashboardLayout = ({ children }) => {
   return (
     <div className="flex bg-slate-50 h-screen">
       <div className="flex flex-col w-72 h-screen px-4 py-8 overflow-y-auto border-r bg-white">
-        <h2 className="text-3xl font-semibold text-center text-blue-400">
-          Featureloop
-        </h2>
+        <Link href="/">
+          <h2 className="text-3xl font-semibold text-center text-blue-400 hover:cursor-pointer">
+            Featureloop
+          </h2>
+        </Link>
         <div className="flex flex-col justify-between mt-6">
           <NavBar />
         </div>

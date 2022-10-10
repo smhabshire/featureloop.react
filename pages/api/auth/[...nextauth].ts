@@ -19,7 +19,6 @@ export const authOptions = {
         session.accessToken = token.accessToken;
       }
 
-
       return session;
     },
     jwt: async ({ token, user, account }) => {
@@ -35,7 +34,10 @@ export const authOptions = {
     }
   },
   secret: process.env.NEXTAUTH_SECRET,
-  debug: true
+  debug: process.env.NODE_ENV === 'development',
+  pages: {
+    signIn: '/auth/login',
+  }
 }
 
 export default NextAuth(authOptions)

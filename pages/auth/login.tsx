@@ -17,12 +17,11 @@ export async function getServerSideProps(context) {
       },
     };
   }
+  // const providers = await (
+  //   await fetch(`http://localhost:3000/api/auth/providers`)
+  // ).json();
 
-  const providers = await (
-    await fetch(`http://localhost:3000/api/auth/providers`)
-  ).json();
-
-  return { props: { providers } };
+  return { props: {} };
 }
 
 const Login = ({ providers }) => {

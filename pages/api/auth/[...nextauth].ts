@@ -4,7 +4,7 @@ import KeycloakProvider from "next-auth/providers/keycloak";
 async function refreshAccessToken(token) {
   try {
     const url =
-      "http://192.168.1.44:8080/realms/featureloop/protocol/openid-connect/token?" +
+      `${process.env.FEATURELOOP_CLIENT_URL}/realms/${process.env.FEATURELOOP_CLIENT_REALM}/protocol/openid-connect/token?` +
       new URLSearchParams({
         client_id: process.env.FEATURELOOP_CLIENT_ID,
         client_secret: process.env.FEATURELOOP_CLIENT_SECRET,

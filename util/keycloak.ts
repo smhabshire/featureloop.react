@@ -1,5 +1,5 @@
 const postFormData = async (url = '', data = {}) => {
-  const formBody = Object.keys(data).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
+  const searchParams = new URLSearchParams(data);
   const response = await fetch(url, {
     method: 'POST',
     mode: 'cors',
@@ -8,7 +8,7 @@ const postFormData = async (url = '', data = {}) => {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
-    body: formBody
+    body: searchParams
   });
 
   return response.json();

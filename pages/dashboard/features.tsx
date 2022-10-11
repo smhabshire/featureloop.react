@@ -7,7 +7,6 @@ import {
   useFeatureRequestsQuery,
 } from '@/generated/graphql';
 import DashboardLayout from '@/layouts/Dashboard';
-import { request } from 'http';
 import { useEffect, useState } from 'react';
 
 const additionalFilters = [
@@ -63,16 +62,20 @@ const Features = () => {
         options={additionalFilters}
       />
 
+      {requests}
+
       <div className="relative flex flex-col min-h-[150px]">
         {!loading
-          ? requests.map((request: FeatureRequest) => {
-              return <FeatureCard key={request.id} {...request} />;
-            })
+          ? requests.length !== 0
+            ? requests.map((request: FeatureRequest) => {
+                return <FeatureCard key={request.id} {...request} />;
+              })
+            : 'No requests, create one!'
           : 'Loading...'}
       </div>
 
       <div className="flex flex-row justify-between items-center w-full py-2">
-        <div className="text-sm">{request.length} Results</div>
+        <div className="text-sm">{requests?.length ?? 0} Results</div>
       </div>
     </div>
   );

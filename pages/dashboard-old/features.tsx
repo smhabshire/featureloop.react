@@ -6,7 +6,7 @@ import {
   SortDirection,
   useFeatureRequestsQuery,
 } from '@/generated/graphql';
-import DashboardLayout from '@/layouts/Dashboard';
+import DashboardOldLayout from '@/layouts/Dashboard-Old';
 import { useEffect, useState } from 'react';
 
 const additionalFilters = [
@@ -79,6 +79,6 @@ const Features = () => {
   );
 };
 
-Features.layout = DashboardLayout;
+Features.layout = DashboardOldLayout;
 
 export default Features;

@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "dev": "next dev -p 8000",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
-    "generate": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen --config codegen.yml",
+    "generate": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen -r dotenv/config  --config codegen.yml --verbose --debug",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --quiet"
@@ -14,9 +14,11 @@
     "@tanstack/react-query-devtools": "^4.3.5",
     "graphql": "^16.6.0",
     "next": "latest",
+    "next-auth": "^4.12.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.4.0"
+    "react-icons": "^4.4.0",
+    "react-toastify": "^9.0.8"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.12.0",

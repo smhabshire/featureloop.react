@@ -62,11 +62,9 @@ const Features = () => {
         options={additionalFilters}
       />
 
-      {requests}
-
       <div className="relative flex flex-col min-h-[150px]">
-        {!loading
-          ? requests.length !== 0
+        {!loading && requests
+          ? requests?.length !== 0
             ? requests.map((request: FeatureRequest) => {
                 return <FeatureCard key={request.id} {...request} />;
               })

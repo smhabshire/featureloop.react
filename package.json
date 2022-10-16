@@ -17,7 +17,8 @@
     "next-auth": "^4.12.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.4.0"
+    "react-icons": "^4.4.0",
+    "react-toastify": "^9.0.8"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.12.0",

@@ -12,8 +12,6 @@ async function refreshAccessToken(token) {
         refresh_token: token.refresh_token,
       });
 
-    console.log('url', url, token);
-
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -57,9 +55,10 @@ export const authOptions = {
   callbacks: {
     session: async ({ session, token }) => {
       if (session?.user) {
-        session.user.id = token.sub;
+        session.user = token.user;
         session.accessToken = token.accessToken;
         session.error = token.error;
+        session.accessTokenExpires = token.accessTokenExpires;
       }
 
       return session;

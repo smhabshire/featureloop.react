@@ -1,9 +1,11 @@
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 export const useFetchData = <TData, TVariables>(
   query: string,
   options?: RequestInit['headers']
 ): ((variables?: TVariables) => Promise<TData>) => {
+  const router = useRouter();
   const session = useSession();
 
   return async (variables?: TVariables) => {
@@ -18,6 +20,16 @@ export const useFetchData = <TData, TVariables>(
     });
 
     const json = await res.json();
+
+    if (res.status === 401) {
+      router.push('/401');
+
+      return;
+    } else if (res.status === 403) {
+      router.push('/403');
+
+      return;
+    } else if (!res.ok) throw new Error(res.statusText);
 
     if (json.errors) {
       const { message } = json.errors[0] || {};

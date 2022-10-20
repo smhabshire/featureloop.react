@@ -6,11 +6,16 @@ import { FaCaretDown } from 'react-icons/fa';
 type Props = {
   label: string;
   children: React.ReactNode;
-  className: string;
+  className?: string;
   closeOnClick?: boolean;
 };
 
-const Popup = ({ label, children, className, closeOnClick = false }: Props) => {
+const Popup = ({
+  label,
+  children,
+  className = '',
+  closeOnClick = false,
+}: Props) => {
   return (
     <Popover className="relative">
       {({ open }) => (
@@ -18,7 +23,7 @@ const Popup = ({ label, children, className, closeOnClick = false }: Props) => {
           <Popover.Button
             className={clsx(
               open && 'text-opacity-90',
-              'group inline-flex items-center rounded-md px-3 py-2  font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75',
+              'group inline-flex items-center rounded-md px-3 py-2 font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75',
               className
             )}
           >
@@ -40,11 +45,11 @@ const Popup = ({ label, children, className, closeOnClick = false }: Props) => {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute left-2/3 z-10 mt-3 -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
+            <Popover.Panel className="absolute left-1/2 z-10 mt-2 -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
               {({ close }) => (
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <div
-                    className="relative grid gap-1 bg-white p-4 lg:grid-cols-2"
+                    className="relative grid gap-1 bg-white p-4"
                     onClick={() => (closeOnClick ? close() : () => '')}
                   >
                     {children}

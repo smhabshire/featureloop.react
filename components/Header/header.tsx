@@ -1,5 +1,8 @@
 import { FaCaretDown } from 'react-icons/fa';
 import DashboardContentWrapper from '../Content/DashboardContentWrapper';
+import Popup from '../Popup/Popup';
+
+const mockBoards = ['Board 1', 'Board 2', 'Board 3'];
 
 const Header = () => {
   return (
@@ -14,8 +17,16 @@ const Header = () => {
           <div className="hidden sm:block">Featureloop</div>
         </div>
         <div className="flex flex-row items-center space-x-2 hover:cursor-pointer">
-          <div>Cuteshoots</div>
-          <FaCaretDown />
+          <Popup label="Cuteshoots" closeOnClick={true}>
+            {mockBoards.map((board) => (
+              <div
+                className="px-4 py-2 text-black w-max hover:cursor-pointer hover:bg-gray-200 rounded-lg space-x-2"
+                key={board}
+              >
+                {board}
+              </div>
+            ))}
+          </Popup>
         </div>
         <div className="flex justify-end items-center space-x-2">
           <div className="w-8 h-8 flex justify-center items-center rounded-full bg-slate-400">
